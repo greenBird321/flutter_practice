@@ -5,31 +5,64 @@ import 'package:flutter_practice/flutter_layout_page.dart';
 import 'package:flutter_practice/builder_context.dart';
 import 'package:flutter_practice/gesture_page.dart';
 import 'package:flutter_practice/photo_page.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 void main() => runApp(MyApp());
 
+//class MyApp extends StatelessWidget {
+//  // This widget is the root of your application.
+//  @override
+//  Widget build(BuildContext context) {
+//    return MaterialApp(
+//      title: 'Flutter Demo',
+//      theme: ThemeData(
+//        primarySwatch: Colors.blue,
+//      ),
+//      home: Scaffold(
+//        appBar: AppBar(
+//          title: Text('如何创建和使用Flutter的路由与导航'),
+//        ),
+//        body: RouteNavigator(),
+//      ),
+//      routes: <String, WidgetBuilder>{    // 注册路由
+//        'less' : (BuildContext content) => LessGroupPage(),
+//        'ful' : (BuildContext content) => statefulPage(),
+//        'layout': (BuildContext content) => FlutterLayoutPage(),
+//        'gesture': (BuildContext content) => GesturePage(),
+//        'photo': (BuildContext content) => photoPage(),
+//      },
+//    );
+//  }
+//}
+
+
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final title = 'Image Demo';
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Image Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('如何创建和使用Flutter的路由与导航'),
+          title: Text(title),
         ),
-        body: RouteNavigator(),
+        body: Stack(
+          children: <Widget>[
+            Center(
+              child: CircularProgressIndicator(),   // 圆形进度指示器
+            ),
+            Center(
+              child: FadeInImage.memoryNetwork(
+                  placeholder: kTransparentImage,   // 透明图片
+                  image: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556260028213&di=1594eee7eab1178792a98eaa1019b7e2&imgtype=0&src=http%3A%2F%2Fs5.sinaimg.cn%2Fmw690%2F006hikKrzy7slxjD5n6c4%26690'
+              ),
+            ),
+          ],
+        ),
       ),
-      routes: <String, WidgetBuilder>{    // 注册路由
-        'less' : (BuildContext content) => LessGroupPage(),
-        'ful' : (BuildContext content) => statefulPage(),
-        'layout': (BuildContext content) => FlutterLayoutPage(),
-        'gesture': (BuildContext content) => GesturePage(),
-        'photo': (BuildContext content) => photoPage(),
-      },
     );
   }
 }

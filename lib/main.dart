@@ -6,8 +6,10 @@ import 'package:flutter_practice/builder_context.dart';
 import 'package:flutter_practice/gesture_page.dart';
 import 'package:flutter_practice/photo_page.dart';
 import 'package:transparent_image/transparent_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_practice/animate_page.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(animatePage());
 
 //class MyApp extends StatelessWidget {
 //  // This widget is the root of your application.
@@ -37,6 +39,7 @@ void main() => runApp(MyApp());
 
 
 class MyApp extends StatelessWidget {
+  final Tween colorTween = new ColorTween(begin: Colors.transparent, end: Colors.black54);
   @override
   Widget build(BuildContext context) {
     final title = 'Image Demo';
@@ -49,18 +52,8 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text(title),
         ),
-        body: Stack(
-          children: <Widget>[
-            Center(
-              child: CircularProgressIndicator(),   // 圆形进度指示器
-            ),
-            Center(
-              child: FadeInImage.memoryNetwork(
-                  placeholder: kTransparentImage,   // 透明图片
-                  image: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556260028213&di=1594eee7eab1178792a98eaa1019b7e2&imgtype=0&src=http%3A%2F%2Fs5.sinaimg.cn%2Fmw690%2F006hikKrzy7slxjD5n6c4%26690'
-              ),
-            ),
-          ],
+        body: Center(
+          child: Icon(Icons.android, size: 100.0,),
         ),
       ),
     );

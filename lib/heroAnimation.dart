@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation; // 控制动画执行速度
 
-// PhotoHero 是动画执行之后的页面
+// PhotoHero 是动画依附控件，使用前后都会使用到
 class PhotoHero extends StatelessWidget {
   PhotoHero({Key key, this.photo, this.onTap, this.width}) : super(key: key);
 

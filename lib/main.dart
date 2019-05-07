@@ -8,8 +8,15 @@ import 'package:flutter_practice/photo_page.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_practice/animate_page.dart';
+import 'package:flutter_practice/animated_widget.dart';
+import 'package:flutter_practice/animated_builder.dart';
+import 'package:flutter_practice/list_page.dart';
+import 'package:flutter_practice/movie_page.dart';
+import 'package:flutter_practice/heroAnimation.dart';
 
-void main() => runApp(animatePage());
+void main() => runApp(MaterialApp(
+  home: HeroAnimation(),
+));
 
 //class MyApp extends StatelessWidget {
 //  // This widget is the root of your application.
